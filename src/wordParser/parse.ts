@@ -27,6 +27,6 @@ const getCommonWords = (text: string): string[] => {
 
   return Array
     .from(wordCount.entries())
-    .filter(([word, count]) => count >= 3)
+    .filter(([_word, count]) => count >= 3)
     .map(([word]) => word)
 }

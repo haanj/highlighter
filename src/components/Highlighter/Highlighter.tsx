@@ -11,7 +11,9 @@ export const Highlighter: React.FC<HighlighterProps> = ({text}) => {
   }
 
   return <>
+    <hr/>
     <div>common: {renderCommon()}</div>
-    <div>{raw}</div>;
+    <hr/>
+    <div>{raw}</div>
   </>
 }

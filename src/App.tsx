@@ -12,11 +12,11 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Highlighter text={text} />
       <label>
         Text:
         <textarea onChange={handleChange} />
       </label>
+      <Highlighter text={text} />
     </div>
   );
 }
