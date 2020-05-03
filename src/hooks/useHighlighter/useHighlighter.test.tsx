@@ -15,7 +15,8 @@ test('words marked for highlighting get put into highlighter element', () => {
   const highlights = ['words', 'highlight']
 
   const { result } = renderHook(() => useHighlighter(text, highlights))
-  const { getAllByTestId, getByText } = render(result.current)
+  const { getAllByTestId, baseElement } = render(result.current)
 
   expect(getAllByTestId('highlight').length).toBe(3)
+  expect(baseElement.textContent).toBe(text)
 })
