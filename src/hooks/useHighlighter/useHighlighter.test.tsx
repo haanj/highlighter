@@ -5,7 +5,8 @@ import { useHighlighter } from './useHighlighter'
 
 test('hook takes input text and returns jsx for it', () => {
   const text = "Hello, world"
-  const { result } = renderHook(() => useHighlighter(text))
+  const highlights: string[] = []
+  const { result } = renderHook(() => useHighlighter(text, highlights))
   const { getByText }  = render(result.current)
   expect(getByText(text)).toBeInTheDocument()
 })
