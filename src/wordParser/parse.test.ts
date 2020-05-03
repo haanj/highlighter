@@ -20,7 +20,7 @@ describe('.common', () => {
       expected: ['all', 'three']
     },
     {
-      input: 'Foo bar foo foo bar bar. -asf- .bar',
+      input: 'Foo bar foo foo bar bar. -asf- bar.',
       expected: ['foo', 'bar']
     }
   ]

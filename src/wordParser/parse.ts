@@ -1,7 +1,5 @@
 import { Parser } from './types'
-import { WordTokenizer } from 'natural'
-
-const tokenizer = new WordTokenizer()
+import nlp from 'compromise'
 
 export const parse: Parser = text => {
   return {
@@ -18,10 +16,11 @@ export const parse: Parser = text => {
 const getCommonWords = (text: string): string[] => {
   const wordCount = new Map<string, number>()
 
-  tokenizer
-    .tokenize(text)
-    .map(token => token.toLowerCase())
-    .forEach(token => {
+  nlp(text)
+    .termList()
+    .map(term => term.clean as string)
+    .forEach((token: string) => {
+      if (!token) return
       const currentCount = wordCount.get(token) || 0
       wordCount.set(token, currentCount + 1)
     })
