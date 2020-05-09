@@ -1,19 +1,19 @@
 import React from 'react'
-import { parse } from '../../wordParser';
+import { useHighlighter } from 'hooks/useHighlighter';
 import { HighlighterProps } from './types'
 
-export const Highlighter: React.FC<HighlighterProps> = ({text}) => {
-  const { raw, common } = parse(text);
+export const Highlighter: React.FC<HighlighterProps> = ({text, highlights, onChange}) => {
+  const rendered = useHighlighter(text, highlights)
 
-  const renderCommon = () => {
-    return common
-      .map(word => <div key={word}>{word}</div>)
+  const handleChange: React.ChangeEventHandler<HTMLTextAreaElement> = event => {
+    if (onChange) onChange(event.currentTarget.value)
   }
 
   return <>
-    <hr/>
-    <div>common: {renderCommon()}</div>
-    <hr/>
-    <div>{raw}</div>
+    <div>{rendered}</div>
+    <label>
+      Text:
+      <textarea onChange={handleChange} />
+    </label>
   </>
 }

@@ -1,22 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Highlighter } from './components';
+import { Editor } from 'components';
 
 
 const App: React.FC = () => {
-  const [text, changeText] = useState<string>('');
-
-  const handleChange: React.ChangeEventHandler<HTMLTextAreaElement> = event => {
-    changeText(event.currentTarget.value)
-  }
-
   return (
     <div className="App">
-      <label>
-        Text:
-        <textarea onChange={handleChange} />
-      </label>
-      <Highlighter text={text} />
+      <Editor />
     </div>
   );
 }
