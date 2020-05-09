@@ -1,6 +1,6 @@
-import React from 'react';
-
-import { Editor } from 'components';
+import React from 'react'
+import { Editor } from 'components'
+import './styles.scss'
 
 
 const App: React.FC = () => {

@@ -1,6 +1,8 @@
 import React from 'react'
-import { useHighlighter } from 'hooks/useHighlighter';
+import { useHighlighter } from 'hooks/useHighlighter'
 import { HighlighterProps } from './types'
+
+import './styles.scss'
 
 export const Highlighter: React.FC<HighlighterProps> = ({text, highlights, onChange}) => {
   const rendered = useHighlighter(text, highlights)
@@ -10,7 +12,9 @@ export const Highlighter: React.FC<HighlighterProps> = ({text, highlights, onCha
   }
 
   return <>
-    <div>{rendered}</div>
+    <div 
+      className="highlighter"
+    >{rendered}</div>
     <label>
       Text:
       <textarea onChange={handleChange} />

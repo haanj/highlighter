@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import nlp from 'compromise'
 
+import './styles.scss';
+
 export const useHighlighter = (text: string, highlights: string[]) => {
   const [rendered, setRendered] = useState<React.ReactElement>(<>{text}</>)
 
@@ -15,7 +17,7 @@ export const useHighlighter = (text: string, highlights: string[]) => {
 
     const renderTerm = (term: nlp.Term) => {
       const displayTerm = highlights.includes(term.clean || '')
-        ? <span data-testid="highlight">{term.text}</span>
+        ? <span data-testid="highlight" className="highlight">{term.text}</span>
         : term.text
 
       return <React.Fragment
